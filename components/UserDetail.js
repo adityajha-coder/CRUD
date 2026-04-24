@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import api from "@/lib/api";
 import EditForm from "@/components/EditForm";
 import "@/styles/UserDetail.css";
@@ -132,13 +133,18 @@ export default function UserDetail({ userId }) {
         </div>
       </div>
 
-      <div className="detail-actions">
-        <button className="btn btn-edit" onClick={() => setEditing(true)}>
-          Update
-        </button>
-        <button className="btn btn-delete" onClick={handleDelete}>
-          Delete
-        </button>
+      <div className="detail-footer">
+        <Link href="/users" className="back-link">
+          Back to Users
+        </Link>
+        <div className="detail-actions">
+          <button className="btn btn-edit" onClick={() => setEditing(true)}>
+            Update
+          </button>
+          <button className="btn btn-delete" onClick={handleDelete}>
+            Delete
+          </button>
+        </div>
       </div>
 
       {editing && (

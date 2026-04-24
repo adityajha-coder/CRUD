@@ -5,20 +5,22 @@
 }
 
 :root {
-  --bg: #fafafa;
+  --bg: #f0f4f4; /*  teal-tinted background */
   --surface: #ffffff;
-  --text: #222222;
-  --text-secondary: #555555;
-  --border: #d1d1d1;
-  --primary: #0056b3;
-  --primary-hover: #004494;
-  --danger: #d9534f;
-  --radius: 4px;
+  --text-main: #0f172a; /* deep slate */
+  --text-muted: #475569;
+  --border: #cbd5e1;
+  --accent: #0d9488; /* Teal */
+  --accent-hover: #0f766e;
+  --secondary: #334155; /* slate for balance */
+  --danger: #be123c;
+  --radius: 4px; /*edges for a custom feel */
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -29,88 +31,101 @@ a {
 }
 
 .main-content {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 32px 20px;
+  padding: 48px 24px;
 }
 
+/* Button System */
 .btn {
-  padding: 6px 12px;
-  border: 1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
   border-radius: var(--radius);
-  font-size: 14px;
   cursor: pointer;
+  transition: all 0.1s ease;
+  border: 1.5px solid transparent;
   font-family: inherit;
-  background: none;
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 .btn-view {
-  color: var(--primary);
-  text-decoration: underline;
+  background-color: var(--secondary);
+  color: #ffffff;
 }
 
 .btn-view:hover {
-  color: var(--primary-hover);
+  background-color: #1e293b;
 }
 
 .btn-edit {
-  background: var(--primary);
-  color: #fff;
-  border-color: var(--primary);
+  background-color: var(--accent);
+  color: #ffffff;
 }
 
 .btn-edit:hover {
-  background: var(--primary-hover);
+  background-color: var(--accent-hover);
 }
 
 .btn-delete {
+  background-color: transparent;
   border-color: var(--danger);
   color: var(--danger);
 }
 
 .btn-delete:hover {
-  background: #fdf2f2;
+  background-color: var(--danger);
+  color: #ffffff;
 }
 
 .btn-save {
-  background: var(--primary);
-  color: #fff;
+  background-color: var(--accent);
+  color: #ffffff;
 }
 
 .btn-save:hover {
-  background: var(--primary-hover);
+  background-color: var(--accent-hover);
 }
 
 .btn-save:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
 .btn-cancel {
+  background-color: transparent;
   border-color: var(--border);
-  color: var(--text);
+  color: var(--text-muted);
 }
 
 .btn-cancel:hover {
-  background: #f5f5f5;
+  background-color: #e2e8f0;
 }
 
+/*utilities*/
 .back-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 24px;
-  transition: color 0.2s;
-}
-
-.back-link::before {
-  content: "\2190";
+  gap: 8px;
+  font-size: 13px;
+  color: var(--accent);
+  margin-bottom: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .back-link:hover {
-  color: var(--primary);
+  color: var(--accent-hover);
+  text-decoration: underline;
 }
 
 .loading-container {
@@ -118,37 +133,43 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
-  color: var(--text-secondary);
-  gap: 16px;
+  padding: 120px 0;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .spinner {
-  width: 32px;
-  height: 32px;
-  border: 3px solid var(--border);
-  border-top-color: var(--primary);
+  width: 30px;
+  height: 30px;
+  border: 3px solid #e2e8f0;
+  border-top-color: var(--accent);
   border-radius: 50%;
-  animation: spin 0.7s linear infinite;
+  animation: spin 0.6s linear infinite;
+  margin-bottom: 20px;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 .error-message {
-  text-align: center;
-  padding: 40px 20px;
+  padding: 40px;
+  background-color: #fff1f2;
+  border-left: 5px solid var(--danger);
   color: var(--danger);
-  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 20px 0;
 }
 
 .error-toast {
-  background: #fef2f2;
-  color: var(--danger);
-  padding: 10px 16px;
-  font-size: 0.85rem;
-  border-bottom: 1px solid #fecaca;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--danger);
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+  z-index: 1000;
 }

@@ -1,48 +1,56 @@
 .user-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
+  background-color: var(--surface);
+  border: 2px solid var(--border);
+  padding: 30px;
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  transition: all 0.2s ease;
 }
 
 .user-card:hover {
-  border-color: #999;
+  border-color: var(--accent);
+  transform: translate(-4px, -4px);
+  box-shadow: 6px 6px 0 var(--accent);
+}
+
+.user-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .user-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: #fff;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 1.1rem;
-  flex-shrink: 0;
+  font-weight: 800;
+  font-size: 20px;
 }
 
 .user-info {
   flex: 1;
-  min-width: 0;
 }
 
 .user-name {
-  font-size: 0.95rem;
-  font-weight: 600;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 4px;
+  line-height: 1.2;
 }
 
 .user-email {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.user-card .btn-view {
+  width: 100%;
 }
