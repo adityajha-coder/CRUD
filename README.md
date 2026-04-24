@@ -7,7 +7,7 @@ This is a professional User Management application built with Next.js (App Route
 1. Fetch All Users
 The application retrieves a list of users on the main page, displaying their essential information (name and email) in a structured grid layout.
 
-2. Dynamic User Details
+2. User Details
 Each user has a dedicated dynamic route (/users/[id]) where you can view their full profile, including company details, contact information, and address.
 
 3. Optimistic Updates
@@ -20,7 +20,6 @@ Similarly, when a user is deleted, the application immediately redirects you bac
 
 - Next.js (App Router): Leverages the latest Next.js features for routing and layout management.
 - Axios with Interceptors: All API calls are handled via a centralized Axios instance. I've implemented request and response interceptors to handle outgoing requests and global error logging.
-- Professional Styling: The application uses a custom, modern CSS theme with a focus on typography, spacing, and a consistent Slate and Teal color palette.
 
 ## Project Structure
 
